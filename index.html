@@ -3,9 +3,88 @@
 <title>nato-lab</title>
 </head>
 <body>
-<pre>
-.nato_lab {
-  display: none;
-}
+<pre id="disp">nato lab is a lab by nat.
+and this is it's homepage.
+
+this page is powered by powerful (TM) ES6 Promise with xhr.
+though it looks like plain text.
+
+</pre>
 </body>
+<script>
+'use strict';
+(function() {
+
+  /* simple Promise factory for our XHRs. */
+  var getRequester = function (addr) {
+    return new Promise(function (resolve, reject) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', addr);
+      xhr.onload = function () {
+        if (this.status == 200) resolve(JSON.parse(xhr.response));
+        else reject({err: xhr.statusText});
+      };
+      xhr.onerror = function () {
+        reject({err: xhr.statusText});
+      };
+      xhr.send();
+    });
+  };
+
+  /* 80 col! yay! */
+  var lineWrapHelper = function(line, pre) {
+    var arr = line.match(new RegExp('.{1,' + (80 - pre) + '}', 'g')), str = '';
+    for(var i = 1; i < arr.length; i++) {
+      str += '\n' + ' '.repeat(pre) + arr[i];
+    }
+    console.log(arr, str, line);
+    return arr[0] + str;
+  };
+
+  /* view */
+  disp = document.getElementById('disp');
+
+  /* people displayer */
+  var dispPeople = function(mems) {
+    disp.innerHTML += 'members: \n';
+    mems.forEach(function(mem) {
+      var pre = 12;
+      disp.innerHTML += '  ' + mem.login + ':\n';
+      disp.innerHTML += '    avatar: ' + lineWrapHelper(mem.avatar_url, pre) +   '\n';
+      disp.innerHTML += '    url:    ' + lineWrapHelper(mem.html_url, pre) + '\n';
+    });
+
+    disp.innerHTML += '\n';
+  }
+
+  /* project displayer */
+  var dispProject = function(repos) {
+    disp.innerHTML += 'projects: \n';
+    repos.forEach(function(repo) {
+      var pre = 10;
+      disp.innerHTML += '  (' + repo.stargazers_count + '*, ' + repo.forks_count + 'f)' + repo.name + ':\n';
+      disp.innerHTML += '    date: ' + lineWrapHelper(repo.created_at, 10) + '\n';
+      disp.innerHTML += '    desc: ' + lineWrapHelper(repo.description, 10) + '\n';
+      disp.innerHTML += '    url:  ' + lineWrapHelper(repo.html_url, 10) + '\n\n';
+    });
+  }
+
+  /* error handler factory */
+  var gotErr = function (errMaker) {
+    return function(errMsg) {
+      disp.innterHTML += 'sorry, our ' + errMaker + ' did not make it becasue of ' + errMsg;
+    }
+  };
+
+  /* get resources */
+  getRequester('https://api.github.com/orgs/nat-lab/members')
+    .then(dispPeople)
+    .catch(new gotErr('member displayer'));
+
+  getRequester('https://api.github.com/orgs/nat-lab/repos')
+    .then(dispProject)
+    .catch(new gotErr('project displayer'));
+
+})();
+</script>
 </html>
