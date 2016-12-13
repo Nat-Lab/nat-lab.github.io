@@ -61,7 +61,7 @@ though it looks like plain text.
       var pre = 12;
       disp.innerHTML += '  ' + mem.login + ':\n';
       disp.innerHTML += '    avatar: ' + lineWrapHelper(mem.avatar_url, pre) +   '\n';
-      disp.innerHTML += '    url:    ' + lineWrapHelper(mem.html_url, pre) + '\n';
+      disp.innerHTML += '       url: ' + lineWrapHelper(mem.html_url, pre) + '\n';
     });
 
     disp.innerHTML += '\n';
@@ -78,7 +78,7 @@ though it looks like plain text.
       if (repo.homepage) disp.innerHTML += '    home: ' + lineWrapHelper(repo.homepage, pre) + '\n';
       disp.innerHTML += '    lang: ' + lineWrapHelper(repo.language, pre) + '\n';
       disp.innerHTML += '    last: ' + lineWrapHelper(repo.updated_at, pre) + '\n';
-      disp.innerHTML += '    url:  ' + lineWrapHelper(repo.html_url, pre) + '\n\n';
+      disp.innerHTML += '     url: ' + lineWrapHelper(repo.html_url, pre) + '\n\n';
     });
   }
 
