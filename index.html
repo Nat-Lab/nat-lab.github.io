@@ -42,7 +42,7 @@ though it looks like plain text.
   };
 
   /* view */
-  disp = document.getElementById('disp');
+  var disp = document.getElementById('disp');
 
   /* people displayer */
   var dispPeople = function(mems) {
@@ -84,6 +84,8 @@ though it looks like plain text.
   getRequester('https://api.github.com/orgs/nat-lab/repos')
     .then(dispProject)
     .catch(new gotErr('project displayer'));
+
+  if(!window.Promise) disp.innerHTML += lineWrapHelper('guess what? your browser does not support Promise. just visit https://github.com/nat-lab instead.', 0);
 
 })();
 </script>
