@@ -6,9 +6,20 @@
 <pre id="disp">nato lab is a lab by nat.
 and this is it's homepage.
 
-this page is powered by powerful (TM) ES6 Promise with xhr.
++--------------------------+
+| Mail:                    |
+|   nat _at_ nat _dot_ moe |
+|                          |
+| Web:                     |
+|   who.nat.moe            |
+|   twitter.com/magicn4t   |
++--------------------------+
+
+this page is powered by powerful (tm) ES6 Promise with xhr.
 though it looks like plain text.
 
+(c) nato-lab 2016
+--------------------------------------------------------------------------------
 </pre>
 </body>
 <script>
@@ -61,10 +72,13 @@ though it looks like plain text.
     disp.innerHTML += 'projects: \n';
     repos.forEach(function(repo) {
       var pre = 10;
-      disp.innerHTML += '  (' + repo.stargazers_count + '*, ' + repo.forks_count + 'f)' + repo.name + ':\n';
-      disp.innerHTML += '    date: ' + lineWrapHelper(repo.created_at, 10) + '\n';
-      disp.innerHTML += '    desc: ' + lineWrapHelper(repo.description, 10) + '\n';
-      disp.innerHTML += '    url:  ' + lineWrapHelper(repo.html_url, 10) + '\n\n';
+      disp.innerHTML += '  (' + repo.stargazers_count + '*, ' + repo.forks_count + 'f, ' + (repo.fork ? 'F' : 'S') + ')' + repo.name + ':\n';
+      disp.innerHTML += '    date: ' + lineWrapHelper(repo.created_at, pre) + '\n';
+      disp.innerHTML += '    desc: ' + lineWrapHelper(repo.description, pre) + '\n';
+      if (repo.homepage) disp.innerHTML += '    home: ' + lineWrapHelper(repo.homepage, pre) + '\n';
+      disp.innerHTML += '    lang: ' + lineWrapHelper(repo.language, pre) + '\n';
+      disp.innerHTML += '    last: ' + lineWrapHelper(repo.updated_at, pre) + '\n';
+      disp.innerHTML += '    url:  ' + lineWrapHelper(repo.html_url, pre) + '\n\n';
     });
   }
 
