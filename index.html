@@ -3,9 +3,8 @@
 <title>nato-lab</title>
 </head>
 <body>
-<pre id="disp">╔╗╔┌─┐┌┬┐┌─┐╦  ┌─┐┌┐ 
-║║║├─┤ │ │ │║  ├─┤├┴┐
-╝╚╝┴ ┴ ┴ └─┘╩═╝┴ ┴└─┘
+<pre id="disp">
+nato-lab Homepage
 
 nato lab is a lab by nat.
 and this is it's homepage.
@@ -13,16 +12,18 @@ and this is it's homepage.
 this page is powered by powerful (tm) ES6 Promise with xhr.
 though it looks like plain text.
 
-(c) nato-lab 2016
 --------------------------------------------------------------------------------
+
 </pre>
 </body>
 <script>
 'use strict';
 (function() {
 
+  var reqd = 0;
+
   /* simple Promise factory for our XHRs. */
-  var getRequester = function (addr) {
+  var getRequester = addr => {
     return new Promise(function (resolve, reject) {
       var xhr = new XMLHttpRequest();
       xhr.open('GET', addr);
@@ -38,7 +39,7 @@ though it looks like plain text.
   };
 
   /* 80 col! yay! */
-  var lineWrapHelper = function(line, pre) {
+  var lineWrapHelper = (line, pre) => {
     var arr = line.match(new RegExp('.{1,' + (80 - pre) + '}', 'g')), str = '';
     for(var i = 1; i < arr.length; i++) {
       str += '\n' + ' '.repeat(pre) + arr[i];
@@ -50,9 +51,9 @@ though it looks like plain text.
   var disp = document.getElementById('disp');
 
   /* people displayer */
-  var dispPeople = function(mems) {
+  var dispPeople = mems => {
     disp.innerHTML += 'members: \n';
-    mems.forEach(function(mem) {
+    mems.forEach(mem => {
       var pre = 12;
       disp.innerHTML += '  ' + mem.login + ':\n';
       disp.innerHTML += '    avatar: ' + lineWrapHelper(mem.avatar_url, pre) +   '\n';
@@ -63,9 +64,9 @@ though it looks like plain text.
   }
 
   /* project displayer */
-  var dispProject = function(repos) {
+  var dispProject = repos => {
     disp.innerHTML += 'projects: \n';
-    repos.forEach(function(repo) {
+    repos.forEach(repo => {
       var pre = 10;
       disp.innerHTML += '  (' + repo.stargazers_count + '*, ' + repo.forks_count + 'f, ' + (repo.fork ? 'F' : 'S') + ')' + repo.name + ':\n';
       disp.innerHTML += '    date: ' + lineWrapHelper(repo.created_at, pre) + '\n';
@@ -77,20 +78,32 @@ though it looks like plain text.
     });
   }
 
+  /* footer */
+  var footer = () => {
+    disp.innerHTML += '-'.repeat(80) + '\n';
+    disp.innerHTML += '(c) nato lab 2015-2017';
+  };
+
   /* error handler factory */
   var gotErr = function (errMaker) {
-    return function(errMsg) {
-      disp.innterHTML += 'sorry, our ' + errMaker + ' did not make it becasue of ' + errMsg;
+    return errMsg => {
+      disp.innterHTML += 'sorry, our ' + errMaker + ' did not make it becasue of ' + errMsg + '\n';
     }
   };
 
   /* get resources */
   getRequester('https://api.github.com/orgs/nat-lab/members')
-    .then(dispPeople)
+    .then(res => {
+      dispPeople(res); reqd++;
+      if (reqd === 2) footer();
+     })
     .catch(new gotErr('member displayer'));
 
   getRequester('https://api.github.com/orgs/nat-lab/repos')
-    .then(dispProject)
+    .then(res => {
+      dispProject(res); reqd++;
+      if (reqd === 2) footer();
+     })
     .catch(new gotErr('project displayer'));
 
   if(!window.Promise) disp.innerHTML += lineWrapHelper('guess what? your browser does not support Promise. just visit https://github.com/nat-lab instead.', 0);
