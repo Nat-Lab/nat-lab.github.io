@@ -1,9 +1,202 @@
 <html>
 <head>
-<noscript><meta http-equiv="refresh" content="0; url=https://github.com/Nat-Lab"></noscript>
-<title>nato-lab</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bellefair|Source+Sans+Pro" rel="stylesheet">
 </head>
-<body onload="window.location = 'https://github.com/Nat-Lab'">
-Visit <a href="https://github.com/Nat-Lab">nat-lab</a> on GitHub.
+<body>
+    <div class="header">
+        <span class="title_wrap">
+            <span class="title_part title_part_b">nato</span><span class="title_part title_part_w">laboratory</span>
+        </span>
+    </div>
+    <div class="content">
+        <section>
+            <div class="subtitle">About</div>
+            <p>Nato, not to be confused with North Atlantic Treaty Organization, was a name that I came up with when I was a 4th grade. What does it mean, you ask? Absolutely nothing, just like most of the projects in this Lab.</p>
+            <p>You might find most of the projects, if not all of the projects here not being useful because my goal was neven to create useful stuff. But I most definitely had fun making them and had learned a lot from making them.</p>
+            <p>Most of the projects here are published under the public domain, with a few exceptions being projects for the SEED internet simulator project and classroom projects (Those are in MIT, which is close enough to the public domain). Please refer to the <tt>LICENSE</tt> file in each project for details. If the license for a project is not specified, you are free to assume it as the public domain.</p>
+        </section>
+        
+        <section>
+            <div class="subtitle">Toys</div>
+            <p>
+                List of projects I created that I had fun using it or had fun writing it.
+            </p>
+            <ul>
+                <li>
+                    <a class="projlink" href="https://github.com/Nat-Lab/natolang" target="_blank">natolang</a>
+                    <p>A cursed programing language created by me after I finally learned to write compilers. Everyone tries to make their programming language safe, but <tt>natolang</tt> aims the absolute opposite. ;)</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/chunithm-touch" target="_blank">chunithm-touch</a>
+                    <p>Touchscreen and Leap Motion support for Chunithm. Rhythm games are great!</p>
+                </li>
+                <li><a href="https://github.com/Nat-Lab/chunithm-vcontroller" target="_blank">chunithm-vcontroller</a>
+                    <p>OSK, but for Chunithm.</p>
+                </li>
+                <li><a href="https://github.com/Nat-Lab/mahonato-ng" target="_blank">mahonato-ng</a>
+                    <p>Nato's Telegram bot.</p>
+                </li>
+                <li><a href="https://github.com/Nat-Lab/osu_pulse" target="_blank">osu!pulse</a>
+                    <p>Convert <tt>osu!</tt> beatmap file to pulse, so you can control stuff like LEDs with headphone output. I once connected it to a TENS unit and have it simulate my finger muscles so my fingers will click automatically. It works, but I really don't recommend trying it.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="subtitle">Web</div>
+            <p>Web related projects.</p>
+            <ul>
+                <li>
+                    <a href="https://github.com/Nat-Lab/natoClock" target="_blank">natoclock</a> (<a href="http://lab.nat.moe/natoClock/" target="_blank">run</a>)
+                    <p>A base-100 clock. I really liked it in the old days and used it as my tabletop clock for a long time. Then I got a nixie tube clock, that replaced it.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/steamap" target="_blank">steamap</a> (<a href="http://lab.nat.moe/steamap/" target="_blank">run</a>)
+                    <p>An interactive Steam friend relationship map.</p>
+                </li>
+                <li><a href="https://github.com/Nat-Lab/telegram-html-bot" target="_blank">telegram-html-bot</a> (<a href="https://lab.nat.moe/telegram-html-bot/" target="_blank">run</a>)
+                    <p>A Telegram bot that runs in a web browser that allows you to modify bot's code on-the-fly and check API request/respond in real-time - an interesting toy.</p>
+                </li>
+                <li><a href="https://github.com/Nat-Lab/neimap" target="_blank">neimap</a> (<a href="http://lab.nat.moe/neimap/" target="_blank">run</a>)
+                    <p>A interactive BGP neighbor map.</p>
+                </li>
+                <li><a href="https://github.com/Nat-Lab/nato_board" target="_blank">natoboard</a>
+                    <p>A collaborative editor. More like Google Docs w/ only plain-text support. A collaborative <tt>notepad.exe</tt>.</p>
+                </li>
+                <li><a href="https://github.com/Nat-Lab/simple_chat" target="_blank">simplechat</a>
+                    <p>A web IRC-like client allows you to chat as a Telegram bot.</p>
+                </li>
+                <li><a href="https://github.com/Nat-Lab/json.js" target="_blank">json.js</a>
+                    <p>A JSON parser written in Javascript. Because writing parser is fun.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="subtitle">Network</div>
+            <p>Some network-related projects. BGP, VPN, DNS, all that kind of fun kinds of stuff.</p>
+            <ul>
+                <li>
+                    <a href="https://github.com/Nat-Lab/distributor" target="_blank">distributor</a>
+                    <p>
+                        A fast UDP-based virtual ethernet switch. Basically, a client-to-client layer 2 VPN. Tests show that it can runs at over 90% of the link speed. It was initially designed for ns3 as a part of the SEED internet simulator project but was later generalized as a virtual ethernet switch.
+                    </p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/eoip" target="_blank">eoip</a>
+                    <p>
+                        A fast MikroTik's EoIP/EoIPv6 implementation for <tt>*nix</tt>.
+                    </p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/vswitch" target="_blank">vswitch</a>
+                    <p>
+                        A not-so-fast multi-protocol virtual ethernet switch. It was a class project, so I didn't bother to improve it any more.
+                    </p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/libbgp" target="_blank">libbgp</a>
+                    <p>
+                        A somewhat useable BGP library written in C++11. With support for some modern BGP features (MP-BGP, 4-bytes ASN) and a simple to use deserialization/serialization interface. A BGP FSM is also included. Might not continue development anymore since it was again initially designed for the "legacy" SEED internet simulator.
+                    </p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/cn-routefeed" target="_blank">cn-routefeed</a>
+                    <p>
+                        A BGP speaker that feeds IP blocks that delegated to China to peer. Useful if you try to do some special routing against China's IP block. (e.g., route to/exclude from VPN)
+                    </p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="subtitle">Misc</div>
+            <p>Tiny utilities, mini research, stupid tools, etc.</p>
+            <ul>
+                <li>
+                    <a href="https://github.com/Nat-Lab/arp-send" target="_blank">arp-send</a>
+                    <p>A low-level ARP sender. Useful for anti-ARP spoofing and ARP spoofing.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/cndns" target="_blank">cndns</a>
+                    <p>A trivial ChinaDNS implementation for demonstration.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/tapio" target="_blank">tapio</a>
+                    <p>A tool that pipe TUN/TAP from/to <tt>stdio</tt>.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/css-colors" target="_blank">css-colors</a>
+                    <p>A tool that grabs <tt>color</tt> and <tt>background-color</tt> from list of websites. <a href="assets/top-300-color.pdf" target="_blank">top-300-color.pdf</a> shows the colors used by the top-300 websites.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/ltree.py" target="_blank">dnspy</a>
+                    <p>A DNS spy that get vistor's DNS server.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/ltree.py" target="_blank">ltree.py</a>
+                    <p>A crawler that draws the link relation between sites.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/ASN-MAP" target="_blank">asn-map</a>
+                    <p>The relation between every AS on the Internet.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/natutils" target="_blank">natutils</a>
+                    <p>Set of stupid tools that I crtated in highschool.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/ripestat-cli" target="_blank">ripestat-cli</a>
+                    <p>A command line utility for accessing RIPEstat data.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/qgrouop_analyzer" target="_blank">qgrouop_analyzer</a>
+                    <p>A group analyzer for Tencent QQ.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/tg_common_groups" target="_blank">tg_common_groups</a>
+                    <p>A common groups analyzer for Tencent Telegram.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="subtitle">Graveyard</div>
+            <p>Dead projects. Not that they are not useable, it just that I am not likely to be maintaining them ever again.</p>
+            <ul>
+                <li><a href="https://github.com/Nat-Lab/libbgp-legacy" target="_blank">libbgp-legacy</a>
+                    <p>A BGP packet deserialization/serialization tool written in C++. Not very usable.  C++, for libbgp-legacy. Discontinued.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/ns3-bgp" target="_blank">ns3-bgp</a>
+                    <p>BGP module for ns3, powered by libbgp. Abandoned since the SEED internet simulator project no longer uses ns3.</p>
+                </li>
+                <li><a href="https://github.com/Nat-Lab/ns3-remote-net-device" target="_blank">ns3-remote-net-device</a>
+                    <p><tt>distributor</tt> client for ns3. Discontinued.</p>
+                </li>
+                <li><a href="https://github.com/Nat-Lab/ns3-bgp-netgen-ng" target="_blank">ns3-bgp-netgen-ng</a>
+                    <p>A web-based UI for creating ns3 networks. Discontinued.</p>
+                </li>
+                <li><a href="https://github.com/Nat-Lab/ns3-bgp-netgen" target="_blank">ns3-bgp-netgen</a>
+                    <p>A tool for creating ns3 networks, written in C++, for libbgp-legacy. Discontinued.</p>
+                </li>
+                <li><a href="https://github.com/Nat-Lab/ns3-gearbox-simulator-impl" target="_blank">ns3-gearbox-simulator-impl</a>
+                    <p>An ns3 simulator implementation that allows you to alter the speed of time. Discontinued.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/routeview" target="_blank">routeview</a> (<a href="http://lab.nat.moe/routeview" target="_blank">run</a>)
+                    <p>A looking glass server. Discontinued.</p>
+                </li>
+                <li>
+                    <a href="https://github.com/Nat-Lab/node-bird-routeparse" target="_blank">node-bird-routeparse</a>
+                    <p>Dump BIRD's routing table to JSON. Used by routeview project.</p>
+                </li>
+            </ul>
+        </section>
+    </div>
 </body>
 </html>
