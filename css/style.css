@@ -1,17 +1,28 @@
 body {
     margin: 0 0 3em 0 auto;
     background-color: #f3f3f3;
+    color: #333;
 }
 
 a, a:visited {
-    color: #333;
     font-family: 'Courier New', Courier, monospace;
+    color: #333;
 }
 
 .header {
     margin: 1.5em 1em 1em 1em;
 }
 
+.footer {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #e6e6e6;
+    padding-left: .2em;
+    padding: 1em;
+}
+
+.footer a, .footer a:visited {
+    font-family: 'Source Sans Pro', sans-serif;
+}
 
 .title_part {
     font-size: 3em;
@@ -29,7 +40,6 @@ a, a:visited {
     padding-left: .2em;
     padding-right: .2em;
     background-color: #f3f3f3;
-    color: #333;
 }
 
 .main {
@@ -50,6 +60,13 @@ a, a:visited {
     border-left: solid #333 2px;
     background-color: #e6e6e6;
     font-family: 'Bellefair', serif;
+}
+
+.copyleft {
+    display:inline-block;
+    top: 2px;
+    position: relative;
+    transform: rotate(180deg);
 }
 
 ul > li {
