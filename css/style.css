@@ -73,7 +73,7 @@ ul > li {
     margin-bottom: 1em;
 }
 
-section > p {
+section > p, li > p {
     margin-bottom: .5em;
 }
 
